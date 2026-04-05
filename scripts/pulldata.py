@@ -1,5 +1,4 @@
 from pathlib import Path
-import os
 import kagglehub
 import shutil
 import stat
@@ -14,6 +13,7 @@ def Pulldata():
         
         Cache_path = Path(kagglehub.dataset_download("afumetto/3dprinter"))
 
+
         for csv_file in Cache_path.rglob('*.csv'):
             target = Path_Install / csv_file.name
 
@@ -27,4 +27,3 @@ def Pulldata():
         print(f"Error : {e}")
     finally:
         pass
-
