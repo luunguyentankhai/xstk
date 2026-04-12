@@ -1,16 +1,24 @@
-from pathlib import Path
 from scripts.pulldata import Pulldata
+from scripts.Processing import Read_Process
 import pandas as pd
-import os
 
-#get data
-if Pulldata():
+class Main:
+    def __init__(self):
+        self.RP = Read_Process.RP()
+
+def main():
     Pulldata()
-
-Curr_dir = Path(__file__).resolve().parent
-
-Data_dir = Curr_dir / "data" / "raw"
-
-df = pd.read_csv(os.path.join(Data_dir, "data.csv"))
-
-print(df.head(25))
+    xstk = Main()
+    #xstk.RP.Read_Data()
+    #print("---------------------------------")
+    #xstk.RP.check_missing_data()
+    # print("---------------------------------")
+    print(xstk.RP.data_preprocessing())
+    
+if __name__ == "__main__":
+    try:
+        main()
+    except Exception as e:
+        print(f"Error : {e}")
+    finally:
+        pass
