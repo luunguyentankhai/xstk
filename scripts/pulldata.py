@@ -1,13 +1,12 @@
 from pathlib import Path
+import config
 import kagglehub
 import shutil
 import stat
 
 def Pulldata():
     try:
-        Base_dir = Path(__file__).resolve().parent.parent
-
-        Path_Install = Path(Base_dir / "data" / "raw")
+        Path_Install = config.Raw_Data_Path
 
         Path_Install.mkdir(parents=True, exist_ok=True)
         
