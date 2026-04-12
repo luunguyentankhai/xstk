@@ -7,7 +7,8 @@ class RP:
     def __init__(self):
         self.Data = config.Data_File
         self.Read = pd.read_csv(self.Data)
-        self.preprocessing = None
+        self.df_eda = None
+        self.df_of_model = None
 
     def Read_Data(self):
         self.Read.info()
@@ -32,18 +33,19 @@ class RP:
         self.Read['infill_pattern'] = self.Read['infill_pattern'].astype('category')
         self.Read['material'] = self.Read['material'].astype('category')
 
+        self.df_eda = self.Read.copy()
         '''
             Chuyển đổi 2 cột trên từ "category" thành "dummy variable" để tính toán
             cho hồi quy tuyến tính
         '''
         
-        self.preprocessing = pd.get_dummies(
+        self.df_of_model = pd.get_dummies(
             self.Read,
             columns=['infill_pattern', 'material'],
             dtype=int,
             drop_first=True
         )
 
-        return self.preprocessing
+        return self.df_eda,self.df_of_model
 
         
