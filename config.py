@@ -11,5 +11,7 @@ Assets = Base_Path / "data" / "Assets"
 dependent_vars =  ["roughness", "tension_strenght", "elongation"]
 independent_vars = ["layer_height","wall_thickness","infill_density","nozzle_temperature","bed_temperature","print_speed","fan_speed"]
 
+features_full = ["layer_height", "wall_thickness", "infill_density","nozzle_temperature", "bed_temperature", "print_speed","material_pla", "infill_pattern_honeycomb"]
+
 DEBUG = True
 VERSION = "1.0.0"
