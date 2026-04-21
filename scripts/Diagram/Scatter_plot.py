@@ -11,12 +11,12 @@ class Scatter:
         for dep in config.dependent_vars:
             for indep in config.independent_vars:
                 plt.figure(figsize=(6,4))
-                sns.scatterplot(x=indep, y=dep, data=self.Data)
+                sns.regplot(x=indep, y=dep, data=self.Data, color='teal', line_kws={'color':'red'})
                 plt.title(f"Scatter_plot: {dep} vs {indep}")
                 plt.xlabel(indep)
                 plt.ylabel(dep)
 
-                #plt.show()
+                # plt.show()
 
                 file_name = config.Assets / f"Scatter_plot_{dep}_vs_{indep}.png"
 
