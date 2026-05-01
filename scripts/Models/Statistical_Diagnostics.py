@@ -16,10 +16,10 @@ class StatisticalDiagnostics:
         X_data = model.model.exog
         print(f"{'='*50}")
         mean_resid = np.mean(model.resid)
-        print(mean_resid)
+        print(f"mean_resid: {mean_resid}")
         print(f"{'='*50}")
         dw_stat = durbin_watson(model.resid)
-        print(dw_stat)
+        print(f"durbin_watson: {dw_stat}")
         print(f"{'='*50}")
         sta, pval_bp, T_sta, F_sta = het_breuschpagan(model.resid, X_data)
         labels = {
