@@ -10,10 +10,10 @@ class Histogram:
     def plt_Histogram(self):
         for var in config.dependent_vars:
             plt.figure(figsize=(6,4))
-            sns.histplot(self.Data[var], bins=10, kde=True, color='skyblue')
+            sns.histplot(self.Data[var], bins=10, kde=True, color='green')
             plt.title(f"Histogram of {var}")
             plt.xlabel(var)
-            plt.ylabel('Tan so')
+            plt.ylabel('frequency')
             plt.grid(axis='y', linestyle='--', alpha=0.7)
             file_name = config.Assets / f"Histogram of {var}"
             plt.savefig(file_name, dpi=300, bbox_inches='tight')
