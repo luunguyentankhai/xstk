@@ -15,5 +15,5 @@ class Matrix_corr:
         plt.figure(figsize=(10,8))
 
         sns.heatmap(corr_matrix, annot=True, fmt=".2f", cmap="coolwarm")
-        plt.title("Heatmap ma tran tuong quan giua cac bien lien tuc")
+        plt.title("Heat-map of the Pearson correlation matrix")
         plt.savefig(config.Assets / "Matrix_corr.png", dpi=300, bbox_inches='tight')
