@@ -3,6 +3,19 @@ import config
 import pandas as pd
 import main
 
+'''
+    file này chúng ta viết 3 hàm đó là :
+        
+        + Read_Data: hàm này để in ra dữ liệu được đọc từ file dữ liệu
+        chúng ta sẽ đọc 10 dòng đầu của file dữ liệu
+        
+        + check_missing_data : hàm này dùng để kiểm thử rằng trong file dữ liệu
+        có dòng nào bị NULL không chúng ta sẽ tính toán tỉ lệ và đếm xem có bao nhiêu dòng bị NULL
+        
+        + data_preprocessing: đây là một hàm rất quan trọng, vì chúng ta sẽ tiền xử lý
+        dữ liệu trong hàm này để chuẩn bị tính toán
+'''
+
 class RP:
     def __init__(self):
         self.Data = config.Data_File
@@ -12,8 +25,7 @@ class RP:
 
     def Read_Data(self):
         self.Read.info()
-        print(f"{self.Read.head(5)}")
-        print(f"{self.Read.tail(5)}")
+        print(f"{self.Read.head(10)}")
 
     def check_missing_data(self):
         missing_counting = self.Read.isnull().sum()
@@ -21,8 +33,8 @@ class RP:
 
         missing_sumary = pd.DataFrame(
             {
-                'So luong Null': missing_counting,
-                'Ti le Null' : missing_percent
+                'NULL Counting': missing_counting,
+                'NULL %' : missing_percent
             }
         )
         return missing_sumary
