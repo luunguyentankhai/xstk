@@ -12,12 +12,15 @@ class VIFChecker:
         self.Target = Target_var
 
     def Check(self):
-        X = self.Data.drop(columns=config.dependent_vars)
-        X = X.drop(columns=self.Select_values[self.Target])        
+        model = self.Data[self.Target]
+        X = model.model.exog
+        feature_names = model.model.exog_names
 
         vif_data = pd.DataFrame()
-        vif_data["Variable"]= X.columns
-        vif_data["VIF"]= [variance_inflation_factor(X.values,i) for i in range(X.shape[1])]
-            
+        vif_data["Variable"]= feature_names
+        vif_data["VIF"]= [variance_inflation_factor(X,i) for i in range(X.shape[1])]
+        
+        vif_data = vif_data[vif_data["Variable"] != "const"]
+
         print(vif_data)
         print(f"{'='*50}")
