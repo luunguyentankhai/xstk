@@ -21,9 +21,9 @@ class ModelDiagnostic:
             plt.figure(figsize=(7, 5))
             sns.scatterplot(x=predicted, y=residuals, color="teal", alpha=0.7)
             plt.axhline(0, color="red", linestyle="--")
-            plt.title("Residuals vs Predicted")
+            plt.title(f"Residuals vs Predicted")
 
-            plt.xlabel(f"Predicted {target_var}")
+            plt.xlabel(f"Predicted")
             plt.ylabel(f"Residuals")
 
             file_name = config.Assets / f"Residuals_vs_Predicted_{target_var}.png"
