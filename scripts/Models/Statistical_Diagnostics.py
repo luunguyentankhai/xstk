@@ -23,11 +23,11 @@ class StatisticalDiagnostics:
         print(f"{'='*50}")
         sta, pval_bp, T_sta, F_sta = het_breuschpagan(model.resid, X_data)
         labels = {
-            "LM Statistic": [sta],
-            "LM-Test p-value": [pval_bp],
-            "F-Statistic": [T_sta],
-            "FTest p-value": [F_sta],
-        }
+                "LM Statistic": [sta],
+                "LM-Test p-value": [pval_bp],
+                "F-Statistic": [T_sta],
+                "FTest p-value": [F_sta],
+                }
         df_result = pd.DataFrame(labels)
         print(df_result)
         print(f"{'='*50}")
