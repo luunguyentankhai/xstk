@@ -39,7 +39,7 @@ class ModelDiagnostic:
             fig, ax = plt.subplots(figsize=(7, 5))
             sm.qqplot(residuals, line="45", fit=True, ax=ax, color="teal", alpha=0.7)
 
-            ax.set_title(f"Normal QQ_plt of residuals")
+            ax.set_title(f"Normal QQ_plt of residuals of {target_var}")
             ax.set_xlabel(f"Theoretical Quantiles")
             ax.set_ylabel(f"Ordered Values")
 
