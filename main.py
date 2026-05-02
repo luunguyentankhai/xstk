@@ -49,20 +49,20 @@ def main():
     xstk.SP.Scatter(eda).plt_Scatter_plot()
     xstk.BX.Box(eda).plt_Box_plot()
     xstk.HS.Histogram(eda).plt_Histogram()
-    
+
 
     cols_to_remove = ['material_ABS', 'fan_speed']
     preprocessing = preprocessing.drop(columns=cols_to_remove, errors='ignore')
 
     fit_models, useless = xstk.OLS.MultipleRegression(preprocessing).fit_models()
-    
-    diagnostics_plt = xstk.MD.ModelDiagnostic(fit_models)
 
-    diagnostics_plt.plt_scatter_residuals()
-    diagnostics_plt.plt_QQ_normality()
     for i in config.dependent_vars:
         xstk.SD.StatisticalDiagnostics(fit_models,i).Test_run()
-        xstk.VIF.VIFChecker(preprocessing,useless,i).Check()
+        xstk.VIF.VIFChecker(fit_models,useless,i).Check()
+    diagnostics_plt = xstk.MD.ModelDiagnostic(fit_models)
+    diagnostics_plt.plt_scatter_residuals()
+    diagnostics_plt.plt_QQ_normality()
+    
 
 if __name__ == "__main__":
     try:
