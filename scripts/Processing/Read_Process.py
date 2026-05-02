@@ -37,7 +37,8 @@ class RP:
                 'NULL %' : missing_percent
             }
         )
-        return missing_sumary
+        print(missing_sumary)
+        print(f"{'='*50}")
 
     def data_preprocessing(self):
 

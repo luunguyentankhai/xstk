@@ -35,7 +35,9 @@ def main():
     print("\n---------------------------------\n")
     # sau đó chúng ta gọi hàm check_missing_data để kiểm thử rằng dữ liệu có bị NULL không
     xstk.RP.check_missing_data()
+    print("\n")
     xstk.ST.describe_numberical_data()
+    print("\n")
     xstk.ST.describe_categorical_data()
     print("\n---------------------------------\n")
     eda, preprocessing = xstk.RP.data_preprocessing()
