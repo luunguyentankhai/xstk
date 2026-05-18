@@ -20,4 +20,14 @@
 
  `pip install -r requirements.txt`
 
+## NEW
+
+### INSTALL THIS
+
+`powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"`
+
+### USING
+
+`uv sync`
+
 # CONTENT
